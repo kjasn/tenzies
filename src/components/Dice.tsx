@@ -1,5 +1,4 @@
 import "../App.css";
-import React from "react";
 
 interface DiceProps {
     value: number;
