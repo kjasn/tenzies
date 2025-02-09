@@ -49,30 +49,7 @@ export default function App() {
         }
     }
 
-    // ********* a way to check isWin (useEffect) ***********
-    /*
-    // Add useEffect to track held dice
-    useEffect(() => {
-        // Clear previous map
-        numberMap.clear();
-        // Count held dice
-        diceArray.forEach((dice) => {
-            if (dice.isHeld) {
-                const currentCount = numberMap.get(dice.value) || 0;
-                numberMap.set(dice.value, currentCount + 1);
-            }
-        });
-
-        // Check win condition
-        const values = Array.from(numberMap.values());
-        if (numberMap.size === 1 && values[0] === 10) {
-            console.log("complete the game");
-        }
-    }, [diceArray]);
-    */
-
     // hold a unheld dice, turn it into light green
-    // add/pop its value to numberMap
     function holdDice(id: string) {
         setDiceArray((prevDices) =>
             prevDices.map((dice) => (dice.id === id ? { ...dice, isHeld: !dice.isHeld } : dice))
