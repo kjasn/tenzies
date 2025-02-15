@@ -52,7 +52,7 @@ export default function App() {
     // hold a unheld dice, turn it into light green
     function holdDice(id: string) {
         setDiceArray((prevDices) =>
-            prevDices.map((dice) => (dice.id === id ? { ...dice, isHeld: !dice.isHeld } : dice))
+            prevDices.map((dice) => (dice.id === id ? { ...dice, isHeld: !dice.isHeld } : dice)),
         );
     }
 
@@ -69,7 +69,9 @@ export default function App() {
         <main>
             {isWin && <Confetti />}
             <h2 className="instructions">Tenzies</h2>
-            <p className="instructions">选择并刷新直到所有骰子变成相同的数字。（点击骰子可固定）</p>
+            <p className="instructions">
+                你的目标是将所有骰子都投掷成相同的点数。点击可保留的骰子，直到所有骰子一致，游戏胜利！
+            </p>
             <div className="dice-container">{diceElements}</div>
             <button className="roll-button" onClick={rollDices} ref={buttonRef}>
                 {isWin ? "再玩一局" : "刷新"}
